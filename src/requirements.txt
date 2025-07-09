@@ -2,3 +2,14 @@ loguru==0.7.2
 numpy==1.26.4
 pandas==2.2.2
 scikit-learn==1.4.2
+alpaca-py==0.40.1
+pyarrow==20.0.0
+fsspec==2025.5.1
+huggingface_hub==0.33.1
+alpaca-py==0.40.1
+datasets==3.6.0
+wordcloud==1.9.4
+huggingface_hub[cli]==0.33.2
+python-dotenv
+ipywidgets
+torch
