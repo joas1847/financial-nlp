@@ -13,3 +13,6 @@ huggingface_hub[cli]==0.33.2
 python-dotenv
 ipywidgets
 torch
+scikit-learn
+transformers[torch]
+optuna

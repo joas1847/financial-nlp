@@ -28,13 +28,3 @@ def clean_text(text: str) -> str:
 
     return text
     
-import os
-
-from getpass import getpass
-from huggingface_hub import login
-from huggingface_hub import notebook_login
-
-
-os.environ["REQUESTS_CA_BUNDLE"] = "/etc/pki/tls/certs/sanofi-ca.crt"
-token = getpass("Enter your Hugging Face token: ")
-login(token=token)
