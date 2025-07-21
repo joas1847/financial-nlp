@@ -16,3 +16,4 @@ torch
 scikit-learn
 transformers[torch]
 optuna
+snscrape
