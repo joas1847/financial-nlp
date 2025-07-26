@@ -60,17 +60,6 @@ Preprocess and analyze sentiment.
 
 Generate and dispatch trading signals.
 
-Project Structure
-
-src/
-├── config.example.yml    # Sample configuration file
-├── pipeline.py           # Main pipeline entry point
-├── twitter_client.py     # Module to fetch tweets
-├── preprocessing.py      # Text cleaning utilities
-├── sentiment.py          # Sentiment analysis logic
-├── signal.py             # Trading signal generator
-├── executor.py           # Sends signals to trader API
-└── requirements.txt      # Python dependencies
 
 Usage Example
 
