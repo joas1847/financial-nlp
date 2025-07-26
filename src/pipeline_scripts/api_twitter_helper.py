@@ -1,8 +1,8 @@
 import tweepy
 from datetime import timezone
-import List
+from typing import List,Optional
 
-def fetch_recent_tweets(bearer_token: str, accounts: List|None = None, keywords: List|None = None, max_results: int = 10):
+def fetch_recent_tweets(bearer_token: str, accounts: Optional[List[str]] = None, keywords: Optional[List[str]] = None, max_results: int = 10):
     """
     Fetch the most recent tweets matching either a list of accounts or keywords.
     
@@ -10,6 +10,7 @@ def fetch_recent_tweets(bearer_token: str, accounts: List|None = None, keywords:
     :param accounts:        List of usernames (without the “@”), e.g. ["business","elonmusk"]
     :param keywords:        List of keywords, e.g. ["crypto","SP500"]
     :param max_results:     Number of tweets to fetch , with a free X API account not more than 100 queries avaliable, recommended 10.
+    
     :return:                List of tweepy.Tweet objects
     """
     #Initialize client
