@@ -1,8 +1,8 @@
 import tweepy
 from datetime import timezone
-from typing import List,Optional
+from typing import List,Optional,Literal
 
-def fetch_recent_tweets(bearer_token: str, accounts: Optional[List[str]] = None, keywords: Optional[List[str]] = None, max_results: int = 10):
+def fetch_recent_tweets(bearer_token: str, accounts: Optional[List[str]] = None, assets: Optional[List[str]] = None, max_results: int = 10):
     """
     Fetch the most recent tweets matching either a list of accounts or keywords.
     
@@ -16,17 +16,18 @@ def fetch_recent_tweets(bearer_token: str, accounts: Optional[List[str]] = None,
     #Initialize client
     client = tweepy.Client(bearer_token=bearer_token)
     
+
     accounts = accounts or []
-    keywords = keywords or []
-    if not accounts and not keywords:
-        raise ValueError("You must specify at least one account or keyword.")
+    assets = assets or []
+    if not accounts and not assets:
+        raise ValueError("You must specify at least one account or asset.")
     
     #Build your query string
     parts = []
     if accounts:
         parts.append(" OR ".join(f"from:{acct}" for acct in accounts))
-    if keywords:
-        parts.append(" OR ".join(keywords))
+    if assets:
+        parts.append(" OR ".join(assets))
     query = " OR ".join(f"({p})" for p in parts)
     # filter out retweets & replies
     query += " -is:retweet -is:reply"

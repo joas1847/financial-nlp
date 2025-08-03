@@ -1,6 +1,7 @@
 import pandas as pd
+from typing import Literal
 
-def generate_trading_signal(df: pd.DataFrame, buy_threshold=0.3, sell_threshold=-0.3):
+def generate_trading_signal(df: pd.DataFrame, buy_threshold: float = 0.3, sell_threshold: float = -0.3) -> tuple[float, str]:
     def label_to_sentiment(row):
         if row['label'] == 'positive':
             return row['score']
