@@ -28,8 +28,6 @@ def sentiment_analysis(token_hf:str,model_to_use: str ,data: List) -> pd.DataFra
     model     = AutoModelForSequenceClassification.from_pretrained(model_to_use)
 
     cfg = AutoConfig.from_pretrained(model_to_use)
-    cfg.id2label   = {0: "negative", 1: "positive", 2: "neutral"}
-    cfg.label2id   = {v: k for k, v in cfg.id2label.items()}
     cfg.num_labels = 3
 
     tokenizer = AutoTokenizer.from_pretrained(model_to_use)
@@ -41,5 +39,13 @@ def sentiment_analysis(token_hf:str,model_to_use: str ,data: List) -> pd.DataFra
     clf = pipeline("sentiment-analysis", model=model, tokenizer=tokenizer)
 
     result = pd.DataFrame(clf(data, truncation=True))
+    finance_label_map = {
+        "BULLISH": "positive",
+        "BEARISH": "negative",
+        "NEUTRAL": "neutral"
+    }
+
+    # Apply map to DataFrame
+    result["label"] = result["label"].map(finance_label_map).fillna(result["label"].str.lower())
 
     return result
