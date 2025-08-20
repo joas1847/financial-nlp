@@ -40,49 +40,16 @@ env create -f environment.yml
 conda activate financial-nlp
 ```
 
-### *3. Configuration*
+### *3. Usage*
 
-Copy the example config and fill in your credentials and parameters:
+*Need to have a Hugging Face, X API and Alpaca account as the tokens are needed it to run the pipline*
 
-cp config.example.yml config.yml
-# Edit config.yml to set Twitter API keys, model paths, and trader endpoint
+Once stored in the local enviroment file or specified in correspinding parameters inside `demo.ipynb` the code will be functional. This notebook is where all the pipline is executed.
 
-4. Run the Pipeline
-
-# Execute the main pipeline script
-python pipeline.py --config config.yml
-
-This will:
-
-Query the Twitter API for relevant tweets.
-
-Preprocess and analyze sentiment.
-
-Generate and dispatch trading signals.
-
-
-Usage Example
-
-# Stream tweets about $AAPL for positive sentiment
-python pipeline.py --config config.yml --symbols AAPL --sentiment positive
-
-Contributing
-
-Fork the repository
-
-Create a new branch (git checkout -b feature/my-feature)
-
-Commit your changes (git commit -am 'Add my feature')
-
-Push to the branch (git push origin feature/my-feature)
-
-Open a Pull Request
-
-License
+For more details, please check the theorical document used as a part of the Final Master Tesis. `TFM_FINANCIAL_NLP.pdf`
 
 This project is licensed under the MIT License.
 
-Contact
+Contact: https://www.linkedin.com/in/jordi-agut-65b90a1a1/ 
 
-For questions or suggestions, open an issue or reach out to the maintainers.
 
