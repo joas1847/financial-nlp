@@ -3,10 +3,6 @@ channels:
   - conda-forge
 dependencies:
   - python=3.11
-  - pip=23.3.1
+  - pip
   - pip:
-  - "--trusted-host"
-  - "pypi.org"
-  - "--trusted-host"
-  - "files.pythonhosted.org"
-  - -r src/requirements.txt
+      - -r src/requirements.txt
