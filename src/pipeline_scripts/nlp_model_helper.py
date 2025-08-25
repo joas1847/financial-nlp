@@ -18,7 +18,6 @@ def sentiment_analysis(token_hf:str,model_to_use: str ,data: List) -> pd.DataFra
         pd.DataFrame: A DataFrame containing the sentiment analysis results for each input text, 
                         including the predicted label and score.
     """   
-    os.environ["REQUESTS_CA_BUNDLE"] = "/etc/pki/tls/certs/sanofi-ca.crt" ################# DELETE ###############
     if not token_hf:
         raise ValueError("Need to specify a Hugging Face token to access the model.")
 
